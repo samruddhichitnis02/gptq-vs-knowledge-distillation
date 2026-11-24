@@ -1,0 +1,118 @@
+[2026-11-24 11:08:58] ===== Part 2 run started (QUICK=False) =====
+[2026-11-24 11:08:58] SID4=2122 SEED=2122 HP_ID=4
+[2026-11-24 11:08:58] GPU: NVIDIA GeForce RTX 3060 Laptop GPU | torch 2.15.0+cu132 | CUDA 13.2 | transformers 5.24.1 | datasets 5.2.0 | python 3.12.3 | Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+[2026-11-24 11:09:04] classes=['World', 'Sports', 'Business', 'Sci/Tech'] | train(all)=120000 train(fit)=114000 val=6000 test=7600
+[2026-11-24 11:09:14] tokenised in 8.4s | train tokens/sample mean=52.8 p95=82 max=128 | truncated(>=128)=0.80%
+[2026-11-24 11:09:14] No teacher in /mnt/c/Users/samru/Study/Study_Abroad/Universities/SJSU/Semester3/Data_266_Generative_AI/Assignments/Assignment12/teacher_model -> fine-tuning stand-in teacher from bert-base-uncased
+[2026-11-24 11:10:45] [teacher] step 500/3563 loss(avg last 500)=0.5041 lr=1.83e-05 elapsed=86s
+[2026-11-24 11:12:11] [teacher] step 1000/3563 loss(avg last 500)=0.2452 lr=1.53e-05 elapsed=172s
+[2026-11-24 11:13:36] [teacher] step 1500/3563 loss(avg last 500)=0.2029 lr=1.23e-05 elapsed=257s
+[2026-11-24 11:15:01] [teacher] step 2000/3563 loss(avg last 500)=0.1975 lr=9.33e-06 elapsed=342s
+[2026-11-24 11:16:28] [teacher] step 2500/3563 loss(avg last 500)=0.1820 lr=6.35e-06 elapsed=429s
+[2026-11-24 11:17:55] [teacher] step 3000/3563 loss(avg last 500)=0.1792 lr=3.36e-06 elapsed=516s
+[2026-11-24 11:19:22] [teacher] step 3500/3563 loss(avg last 500)=0.1746 lr=3.76e-07 elapsed=603s
+[2026-11-24 11:19:33] [teacher] step 3563/3563 loss(avg last 500)=0.1729 lr=0.00e+00 elapsed=614s
+[2026-11-24 11:19:42] [teacher] finished in 623s | val acc=0.9442
+[2026-11-24 11:19:49] Teacher source: stand-in: bert-base-uncased fine-tuned here (instructor Drive folder was access-restricted) | arch=['BertForSequenceClassification'] | params=109.5M
+[2026-11-24 11:22:46] Teacher logits extracted for 120000 training samples in 176.9s; shape=(120000, 4)
+[2026-11-24 11:22:46] Teacher accuracy on fit split=0.9576 | on held-out val=0.9442
+[2026-11-24 11:22:46]   teacher soft targets at T= 1: mean max-prob=0.956  mean entropy=0.137 nats
+[2026-11-24 11:22:46]   teacher soft targets at T= 2: mean max-prob=0.839  mean entropy=0.533 nats
+[2026-11-24 11:22:46]   teacher soft targets at T= 5: mean max-prob=0.530  mean entropy=1.181 nats
+[2026-11-24 11:22:47]   teacher soft targets at T=10: mean max-prob=0.383  mean entropy=1.336 nats
+[2026-11-24 11:22:57] Teacher test accuracy = 0.9420
+[2026-11-24 11:22:58] [T1_a0.5] start: T=1 alpha=0.5 steps=3563 cfg={'epochs': 1, 'bs': 32, 'lr': 5e-05, 'wd': 0.01, 'warmup': 0.06, 'max_len': 128, 'clip': 1.0, 'amp': 'fp16', 'seed': 2122}
+[2026-11-24 11:23:44] [T1_a0.5] step   500/3563 loss=0.3585 CE=0.4303 KL*T^2=0.2866 lr=4.57e-05 46s
+[2026-11-24 11:24:30] [T1_a0.5] step  1000/3563 loss=0.1662 CE=0.2403 KL*T^2=0.0922 lr=3.83e-05 92s
+[2026-11-24 11:25:15] [T1_a0.5] step  1500/3563 loss=0.1298 CE=0.1967 KL*T^2=0.0628 lr=3.08e-05 137s
+[2026-11-24 11:26:01] [T1_a0.5] step  2000/3563 loss=0.1169 CE=0.1856 KL*T^2=0.0482 lr=2.33e-05 182s
+[2026-11-24 11:26:47] [T1_a0.5] step  2500/3563 loss=0.1069 CE=0.1770 KL*T^2=0.0368 lr=1.59e-05 229s
+[2026-11-24 11:27:33] [T1_a0.5] step  3000/3563 loss=0.0979 CE=0.1697 KL*T^2=0.0261 lr=8.40e-06 275s
+[2026-11-24 11:28:19] [T1_a0.5] step  3500/3563 loss=0.0945 CE=0.1679 KL*T^2=0.0210 lr=9.40e-07 321s
+[2026-11-24 11:28:25] [T1_a0.5] step  3563/3563 loss=0.0923 CE=0.1669 KL*T^2=0.0177 lr=0.00e+00 327s
+[2026-11-24 11:28:35] [T1_a0.5] done in 327s | val acc=0.9440 val CE=0.1570 | test acc=0.9446 | test agreement w/ teacher=0.9833
+[2026-11-24 11:28:39] [T2_a0.5] start: T=2 alpha=0.5 steps=3563 cfg={'epochs': 1, 'bs': 32, 'lr': 5e-05, 'wd': 0.01, 'warmup': 0.06, 'max_len': 128, 'clip': 1.0, 'amp': 'fp16', 'seed': 2122}
+[2026-11-24 11:29:25] [T2_a0.5] step   500/3563 loss=0.6005 CE=0.4319 KL*T^2=0.7692 lr=4.57e-05 46s
+[2026-11-24 11:30:11] [T2_a0.5] step  1000/3563 loss=0.2070 CE=0.2391 KL*T^2=0.1749 lr=3.83e-05 92s
+[2026-11-24 11:30:56] [T2_a0.5] step  1500/3563 loss=0.1533 CE=0.1935 KL*T^2=0.1130 lr=3.08e-05 138s
+[2026-11-24 11:31:42] [T2_a0.5] step  2000/3563 loss=0.1326 CE=0.1816 KL*T^2=0.0836 lr=2.33e-05 183s
+[2026-11-24 11:32:28] [T2_a0.5] step  2500/3563 loss=0.1208 CE=0.1745 KL*T^2=0.0670 lr=1.59e-05 229s
+[2026-11-24 11:33:14] [T2_a0.5] step  3000/3563 loss=0.1082 CE=0.1672 KL*T^2=0.0492 lr=8.40e-06 276s
+[2026-11-24 11:34:00] [T2_a0.5] step  3500/3563 loss=0.1044 CE=0.1689 KL*T^2=0.0400 lr=9.40e-07 322s
+[2026-11-24 11:34:06] [T2_a0.5] step  3563/3563 loss=0.1034 CE=0.1699 KL*T^2=0.0370 lr=0.00e+00 328s
+[2026-11-24 11:34:16] [T2_a0.5] done in 328s | val acc=0.9435 val CE=0.1594 | test acc=0.9438 | test agreement w/ teacher=0.9828
+[2026-11-24 11:34:19] [T5_a0.5] start: T=5 alpha=0.5 steps=3563 cfg={'epochs': 1, 'bs': 32, 'lr': 5e-05, 'wd': 0.01, 'warmup': 0.06, 'max_len': 128, 'clip': 1.0, 'amp': 'fp16', 'seed': 2122}
+[2026-11-24 11:35:06] [T5_a0.5] step   500/3563 loss=0.7802 CE=0.4332 KL*T^2=1.1273 lr=4.57e-05 46s
+[2026-11-24 11:35:52] [T5_a0.5] step  1000/3563 loss=0.2118 CE=0.2282 KL*T^2=0.1954 lr=3.83e-05 92s
+[2026-11-24 11:36:38] [T5_a0.5] step  1500/3563 loss=0.1604 CE=0.1875 KL*T^2=0.1332 lr=3.08e-05 138s
+[2026-11-24 11:37:23] [T5_a0.5] step  2000/3563 loss=0.1418 CE=0.1803 KL*T^2=0.1032 lr=2.33e-05 184s
+[2026-11-24 11:38:10] [T5_a0.5] step  2500/3563 loss=0.1254 CE=0.1694 KL*T^2=0.0815 lr=1.59e-05 231s
+[2026-11-24 11:38:57] [T5_a0.5] step  3000/3563 loss=0.1157 CE=0.1655 KL*T^2=0.0659 lr=8.40e-06 277s
+[2026-11-24 11:39:42] [T5_a0.5] step  3500/3563 loss=0.1106 CE=0.1663 KL*T^2=0.0549 lr=9.40e-07 323s
+[2026-11-24 11:39:48] [T5_a0.5] step  3563/3563 loss=0.1108 CE=0.1689 KL*T^2=0.0526 lr=0.00e+00 329s
+[2026-11-24 11:39:59] [T5_a0.5] done in 329s | val acc=0.9433 val CE=0.1598 | test acc=0.9434 | test agreement w/ teacher=0.9825
+[2026-11-24 11:40:02] [T10_a0.5] start: T=10 alpha=0.5 steps=3563 cfg={'epochs': 1, 'bs': 32, 'lr': 5e-05, 'wd': 0.01, 'warmup': 0.06, 'max_len': 128, 'clip': 1.0, 'amp': 'fp16', 'seed': 2122}
+[2026-11-24 11:40:49] [T10_a0.5] step   500/3563 loss=0.7660 CE=0.4325 KL*T^2=1.0995 lr=4.57e-05 47s
+[2026-11-24 11:41:35] [T10_a0.5] step  1000/3563 loss=0.2082 CE=0.2269 KL*T^2=0.1894 lr=3.83e-05 93s
+[2026-11-24 11:42:21] [T10_a0.5] step  1500/3563 loss=0.1590 CE=0.1871 KL*T^2=0.1310 lr=3.08e-05 139s
+[2026-11-24 11:43:07] [T10_a0.5] step  2000/3563 loss=0.1407 CE=0.1791 KL*T^2=0.1022 lr=2.33e-05 185s
+[2026-11-24 11:43:53] [T10_a0.5] step  2500/3563 loss=0.1252 CE=0.1694 KL*T^2=0.0810 lr=1.59e-05 231s
+[2026-11-24 11:44:40] [T10_a0.5] step  3000/3563 loss=0.1155 CE=0.1649 KL*T^2=0.0662 lr=8.40e-06 278s
+[2026-11-24 11:45:26] [T10_a0.5] step  3500/3563 loss=0.1109 CE=0.1658 KL*T^2=0.0560 lr=9.40e-07 324s
+[2026-11-24 11:45:32] [T10_a0.5] step  3563/3563 loss=0.1112 CE=0.1693 KL*T^2=0.0531 lr=0.00e+00 330s
+[2026-11-24 11:45:42] [T10_a0.5] done in 330s | val acc=0.9417 val CE=0.1596 | test acc=0.9436 | test agreement w/ teacher=0.9839
+[2026-11-24 11:45:44] Temperature sweep:
+ T  alpha  val_acc   val_ce  test_acc  teacher_agreement  train_time_s
+ 1    0.5 0.944000 0.156998  0.944605           0.983289    326.963524
+ 2    0.5 0.943500 0.159394  0.943816           0.982763    327.520231
+ 5    0.5 0.943333 0.159768  0.943421           0.982500    329.179491
+10    0.5 0.941667 0.159606  0.943553           0.983947    329.838367
+BEST_T (highest val acc, ties -> lower val CE) = 1
+[2026-11-24 11:45:45] [T1_a0.25_alphasweep] start: T=1 alpha=0.25 steps=3563 cfg={'epochs': 1, 'bs': 32, 'lr': 5e-05, 'wd': 0.01, 'warmup': 0.06, 'max_len': 128, 'clip': 1.0, 'amp': 'fp16', 'seed': 2122}
+[2026-11-24 11:46:31] [T1_a0.25_alphasweep] step   500/3563 loss=0.3206 CE=0.4280 KL*T^2=0.2848 lr=4.57e-05 46s
+[2026-11-24 11:47:17] [T1_a0.25_alphasweep] step  1000/3563 loss=0.1241 CE=0.2365 KL*T^2=0.0866 lr=3.83e-05 92s
+[2026-11-24 11:48:02] [T1_a0.25_alphasweep] step  1500/3563 loss=0.0893 CE=0.1920 KL*T^2=0.0550 lr=3.08e-05 137s
+[2026-11-24 11:48:48] [T1_a0.25_alphasweep] step  2000/3563 loss=0.0779 CE=0.1820 KL*T^2=0.0433 lr=2.33e-05 183s
+[2026-11-24 11:49:34] [T1_a0.25_alphasweep] step  2500/3563 loss=0.0686 CE=0.1751 KL*T^2=0.0330 lr=1.59e-05 229s
+[2026-11-24 11:50:20] [T1_a0.25_alphasweep] step  3000/3563 loss=0.0599 CE=0.1679 KL*T^2=0.0238 lr=8.40e-06 275s
+[2026-11-24 11:51:06] [T1_a0.25_alphasweep] step  3500/3563 loss=0.0560 CE=0.1689 KL*T^2=0.0184 lr=9.40e-07 321s
+[2026-11-24 11:51:12] [T1_a0.25_alphasweep] step  3563/3563 loss=0.0579 CE=0.1712 KL*T^2=0.0201 lr=0.00e+00 327s
+[2026-11-24 11:51:22] [T1_a0.25_alphasweep] done in 327s | val acc=0.9423 val CE=0.1610 | test acc=0.9436 | test agreement w/ teacher=0.9839
+[2026-11-24 11:51:25] [T1_a0.5_alphasweep] start: T=1 alpha=0.5 steps=3563 cfg={'epochs': 1, 'bs': 32, 'lr': 5e-05, 'wd': 0.01, 'warmup': 0.06, 'max_len': 128, 'clip': 1.0, 'amp': 'fp16', 'seed': 2122}
+[2026-11-24 11:52:11] [T1_a0.5_alphasweep] step   500/3563 loss=0.3585 CE=0.4303 KL*T^2=0.2866 lr=4.57e-05 46s
+[2026-11-24 11:52:57] [T1_a0.5_alphasweep] step  1000/3563 loss=0.1662 CE=0.2403 KL*T^2=0.0922 lr=3.83e-05 92s
+[2026-11-24 11:53:42] [T1_a0.5_alphasweep] step  1500/3563 loss=0.1298 CE=0.1967 KL*T^2=0.0628 lr=3.08e-05 137s
+[2026-11-24 11:54:27] [T1_a0.5_alphasweep] step  2000/3563 loss=0.1169 CE=0.1856 KL*T^2=0.0482 lr=2.33e-05 183s
+[2026-11-24 11:55:14] [T1_a0.5_alphasweep] step  2500/3563 loss=0.1069 CE=0.1770 KL*T^2=0.0368 lr=1.59e-05 229s
+[2026-11-24 11:56:00] [T1_a0.5_alphasweep] step  3000/3563 loss=0.0979 CE=0.1697 KL*T^2=0.0261 lr=8.40e-06 275s
+[2026-11-24 11:56:46] [T1_a0.5_alphasweep] step  3500/3563 loss=0.0945 CE=0.1679 KL*T^2=0.0210 lr=9.40e-07 321s
+[2026-11-24 11:56:52] [T1_a0.5_alphasweep] step  3563/3563 loss=0.0923 CE=0.1669 KL*T^2=0.0177 lr=0.00e+00 327s
+[2026-11-24 11:57:02] [T1_a0.5_alphasweep] done in 327s | val acc=0.9440 val CE=0.1570 | test acc=0.9446 | test agreement w/ teacher=0.9833
+[2026-11-24 11:57:05] [T1_a0.75_alphasweep] start: T=1 alpha=0.75 steps=3563 cfg={'epochs': 1, 'bs': 32, 'lr': 5e-05, 'wd': 0.01, 'warmup': 0.06, 'max_len': 128, 'clip': 1.0, 'amp': 'fp16', 'seed': 2122}
+[2026-11-24 11:57:50] [T1_a0.75_alphasweep] step   500/3563 loss=0.4011 CE=0.4366 KL*T^2=0.2946 lr=4.57e-05 46s
+[2026-11-24 11:58:36] [T1_a0.75_alphasweep] step  1000/3563 loss=0.2095 CE=0.2463 KL*T^2=0.0991 lr=3.83e-05 91s
+[2026-11-24 11:59:21] [T1_a0.75_alphasweep] step  1500/3563 loss=0.1696 CE=0.2026 KL*T^2=0.0708 lr=3.08e-05 137s
+[2026-11-24 12:00:07] [T1_a0.75_alphasweep] step  2000/3563 loss=0.1557 CE=0.1899 KL*T^2=0.0530 lr=2.33e-05 183s
+[2026-11-24 12:00:53] [T1_a0.75_alphasweep] step  2500/3563 loss=0.1462 CE=0.1812 KL*T^2=0.0410 lr=1.59e-05 229s
+[2026-11-24 12:01:39] [T1_a0.75_alphasweep] step  3000/3563 loss=0.1367 CE=0.1722 KL*T^2=0.0301 lr=8.40e-06 275s
+[2026-11-24 12:02:25] [T1_a0.75_alphasweep] step  3500/3563 loss=0.1330 CE=0.1698 KL*T^2=0.0226 lr=9.40e-07 321s
+[2026-11-24 12:02:31] [T1_a0.75_alphasweep] step  3563/3563 loss=0.1316 CE=0.1684 KL*T^2=0.0213 lr=0.00e+00 327s
+[2026-11-24 12:02:41] [T1_a0.75_alphasweep] done in 327s | val acc=0.9448 val CE=0.1570 | test acc=0.9432 | test agreement w/ teacher=0.9786
+[2026-11-24 12:02:43] Alpha sweep at T=1:
+ T  alpha  val_acc   val_ce  test_acc  teacher_agreement  train_time_s
+ 1   0.25 0.942333 0.161043  0.943553           0.983947    327.058505
+ 1   0.50 0.944000 0.156998  0.944605           0.983289    327.168961
+ 1   0.75 0.944833 0.157047  0.943158           0.978553    326.662389
+Best distilled student overall (by val acc): T1_a0.75_alphasweep (T=1, alpha=0.75)
+[2026-11-24 12:04:10] Benchmark:
+                                           model   params_M  accuracy    p50_ms    p95_ms   mean_ms  testset_time_s  throughput_samples_s  peak_mem_GB    disk_MB  weights_MB
+                             Teacher (BERT-base) 109.485316  0.941974 13.874427 21.851794 15.048850       39.097155            194.387545     0.929452 418.355692  417.675758
+Best distilled student (DistilBERT, T=1, α=0.75)  66.956548  0.943158  7.818095 11.729042  8.257098       19.477819            390.187428     0.771017 256.110523  255.430908
+[2026-11-24 12:04:10] Per-class accuracy:
+   class    n  teacher_acc  student_acc  delta_pp
+   World 1900     0.944737     0.942632 -0.210526
+  Sports 1900     0.986842     0.990000  0.315789
+Business 1900     0.902105     0.905789  0.368421
+Sci/Tech 1900     0.934211     0.934211  0.000000
+Class that degrades most: World
+[2026-11-24 12:04:14] ===== Part 2 run finished =====

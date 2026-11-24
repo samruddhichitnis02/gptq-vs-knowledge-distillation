@@ -1,0 +1,9 @@
+[2026-11-24 12:04:48] ===== Part 1 run started =====
+[2026-11-24 12:04:48] MODEL_ID=facebook/opt-125m REVISION=27dcfa74d334bc871f3234de431e71c6eeba5dd6
+[2026-11-24 12:04:48] GPU: NVIDIA GeForce RTX 3060 Laptop GPU | torch 2.15.0+cu132 | CUDA 13.2 | transformers 5.24.1 | optimum ? | gptqmodel 7.12.2 | datasets 5.2.0 | python 3.12.3 | Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+[2026-11-24 12:04:52] Base model: 125.2M params, dtype=torch.float16, saved to /mnt/c/Users/samru/Study/Study_Abroad/Universities/SJSU/Semester3/Data_266_Generative_AI/Assignments/Assignment12/models/opt-125m-fp16
+[2026-11-24 12:05:40] GPTQ quantisation finished in 46.5s (peak GPU mem during quantisation 1.02 GB); saved to /mnt/c/Users/samru/Study/Study_Abroad/Universities/SJSU/Semester3/Data_266_Generative_AI/Assignments/Assignment12/models/opt-125m-gptq-4bit-g128
+[2026-11-24 12:05:42] WikiText-2 test: 287,645 tokens -> 140 windows of 2048
+[2026-11-24 12:07:06] Base LLM (fp16): layers=nn.Linear (fp16) ppl=27.656 loss=3.3198 | gen p50/p95=2095.9/2426.9 ms | prefill p50/p95=17.95/22.79 ms | load mem=0.233 GB peak=1.265 GB | disk=242.3 MB
+[2026-11-24 12:09:38] GPTQ-quantized LLM (4-bit, g128): layers=MarlinLinear ppl=32.194 loss=3.4718 | gen p50/p95=4136.7/4858.1 ms | prefill p50/p95=27.75/30.98 ms | load mem=0.116 GB peak=1.148 GB | disk=122.7 MB
+[2026-11-24 12:09:39] ===== Part 1 run finished =====

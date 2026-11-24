@@ -1,0 +1,9 @@
+.venv/
+checkpoints/
+models/
+teacher_model/
+student_model_best/
+results/part2/teacher_train_logits.npy
+__pycache__/
+.ipynb_checkpoints/
+.claude/

@@ -19,7 +19,7 @@ torch 2.15.0 (CUDA 13.2), transformers 5.24.1, GPT-QModel 7.12.2, optimum 2.3.0,
 Model weights (`models/`, `teacher_model/`, `student_model_best/`, `checkpoints/`) are produced by the notebooks. They are
 git-ignored because of their size.
 
-## Part 1 — GPTQ (`facebook/opt-125m`, revision `27dcfa74d334bc871f3234de431e71c6eeba5dd6`)
+## Part 1 — GPTQ 
 4-bit, group size 128, calibrated on WikiText-2 train (46.5 s). Evaluated on WikiText-2 test: perplexity over 140 non-overlapping
 2048-token windows.
 

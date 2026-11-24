@@ -1,0 +1,179 @@
+{
+ "SID4": 2122,
+ "SEED": 2122,
+ "teacher_source": "stand-in: bert-base-uncased fine-tuned here (instructor Drive folder was access-restricted)",
+ "best_T": 1,
+ "best_tag": "T1_a0.75_alphasweep",
+ "best_alpha": 0.75,
+ "temperature_sweep": [
+  {
+   "T": 1,
+   "alpha": 0.5,
+   "val_acc": 0.944,
+   "val_ce": 0.15699772536754608,
+   "test_acc": 0.9446052631578947,
+   "teacher_agreement": 0.9832894736842105,
+   "train_time_s": 326.9635238647461
+  },
+  {
+   "T": 2,
+   "alpha": 0.5,
+   "val_acc": 0.9435,
+   "val_ce": 0.15939435362815857,
+   "test_acc": 0.9438157894736842,
+   "teacher_agreement": 0.9827631578947369,
+   "train_time_s": 327.52023124694824
+  },
+  {
+   "T": 5,
+   "alpha": 0.5,
+   "val_acc": 0.9433333333333334,
+   "val_ce": 0.15976832807064056,
+   "test_acc": 0.9434210526315789,
+   "teacher_agreement": 0.9825,
+   "train_time_s": 329.17949056625366
+  },
+  {
+   "T": 10,
+   "alpha": 0.5,
+   "val_acc": 0.9416666666666667,
+   "val_ce": 0.15960575640201569,
+   "test_acc": 0.9435526315789474,
+   "teacher_agreement": 0.9839473684210527,
+   "train_time_s": 329.83836698532104
+  }
+ ],
+ "alpha_sweep": [
+  {
+   "T": 1,
+   "alpha": 0.25,
+   "val_acc": 0.9423333333333334,
+   "val_ce": 0.16104254126548767,
+   "test_acc": 0.9435526315789474,
+   "teacher_agreement": 0.9839473684210527,
+   "train_time_s": 327.05850529670715
+  },
+  {
+   "T": 1,
+   "alpha": 0.5,
+   "val_acc": 0.944,
+   "val_ce": 0.15699772536754608,
+   "test_acc": 0.9446052631578947,
+   "teacher_agreement": 0.9832894736842105,
+   "train_time_s": 327.1689610481262
+  },
+  {
+   "T": 1,
+   "alpha": 0.75,
+   "val_acc": 0.9448333333333333,
+   "val_ce": 0.1570473462343216,
+   "test_acc": 0.9431578947368421,
+   "teacher_agreement": 0.9785526315789473,
+   "train_time_s": 326.6623885631561
+  }
+ ],
+ "benchmark": [
+  {
+   "model": "Teacher (BERT-base)",
+   "params_M": 109.485316,
+   "accuracy": 0.9419736842105263,
+   "p50_ms": 13.874426500024128,
+   "p95_ms": 21.851794449776207,
+   "mean_ms": 15.04884972597938,
+   "testset_time_s": 39.09715509414673,
+   "throughput_samples_s": 194.38754512186497,
+   "peak_mem_GB": 0.9294524192810059,
+   "disk_MB": 418.35569190979004,
+   "weights_MB": 417.6757583618164
+  },
+  {
+   "model": "Best distilled student (DistilBERT, T=1, \u03b1=0.75)",
+   "params_M": 66.956548,
+   "accuracy": 0.9431578947368421,
+   "p50_ms": 7.81809450018045,
+   "p95_ms": 11.729041649914501,
+   "mean_ms": 8.25709828800791,
+   "testset_time_s": 19.477818727493286,
+   "throughput_samples_s": 390.18742839373823,
+   "peak_mem_GB": 0.7710165977478027,
+   "disk_MB": 256.11052322387695,
+   "weights_MB": 255.430908203125
+  }
+ ],
+ "per_class": [
+  {
+   "class": "World",
+   "n": 1900,
+   "teacher_acc": 0.9447368421052632,
+   "student_acc": 0.9426315789473684,
+   "delta_pp": -0.21052631578948322
+  },
+  {
+   "class": "Sports",
+   "n": 1900,
+   "teacher_acc": 0.9868421052631579,
+   "student_acc": 0.99,
+   "delta_pp": 0.31578947368421373
+  },
+  {
+   "class": "Business",
+   "n": 1900,
+   "teacher_acc": 0.9021052631578947,
+   "student_acc": 0.9057894736842105,
+   "delta_pp": 0.36842105263157343
+  },
+  {
+   "class": "Sci/Tech",
+   "n": 1900,
+   "teacher_acc": 0.9342105263157895,
+   "student_acc": 0.9342105263157895,
+   "delta_pp": 0.0
+  }
+ ],
+ "worst_class": "World",
+ "worst_class_examples": [
+  {
+   "test_idx": 528,
+   "teacher_pred (p)": "World (0.58)",
+   "student_pred (p)": "Business (0.91)",
+   "student p(true)": 0.08,
+   "tokens": 41,
+   "text": "Update 1: Passengers Stranded by Canceled Flights Thousands of disgruntled vacationers were stranded at Heathrow Airport Tuesday after British Airways canceled scores of flights because of staff shortages and technical hitches."
+  },
+  {
+   "test_idx": 1617,
+   "teacher_pred (p)": "World (0.88)",
+   "student_pred (p)": "Sports (0.88)",
+   "student p(true)": 0.11,
+   "tokens": 63,
+   "text": "At Last, Success on the Road for Lions The Detroit Lions went three full seasons without winning an away game, setting an NFL record for road futility. They ended that ignominious streak Sunday in their first opportunity of the season, beating the Chicago Bears 20-16 at Soldier Field..."
+  },
+  {
+   "test_idx": 6698,
+   "teacher_pred (p)": "World (0.78)",
+   "student_pred (p)": "Sports (0.85)",
+   "student p(true)": 0.12,
+   "tokens": 89,
+   "text": "Terms of Endearment   Seems that the Bush administration, unlike previous White Houses, is not necessarily averse to allowing its ambassadors to have second tours. For example, word is that    John     Thomas \"Tom    \" Schieffer , the Texas oilman who brought    President Bush  into the Texas Rangers baseball club partnership and who is now ambassador to Australia, is to hang out in the Pacific a while longer, this time as ambassador to Japan."
+  },
+  {
+   "test_idx": 2183,
+   "teacher_pred (p)": "World (0.85)",
+   "student_pred (p)": "Sci/Tech (0.84)",
+   "student p(true)": 0.13,
+   "tokens": 128,
+   "text": "Election chaos? (U.S. News   World Report) U.S. News   World Report - Michael Cadigan's day job is practicing commercial law in Albuquerque. But over eggs at the trendy Gold Street Caffe in the heart of downtown, he and a dozen other lawyers are immersing themselves in the intricacies of election law. On Election Day, they plan to be out in force for Democrat John Kerry at polling places across New Mexico, where Al Gore won in 2000 by just 366 votes.  quot;We know there was a lot of monkey business with counting ballots before, quot; says Cadigan.  quot;We want to make sure that doesn't happen again. ..."
+  },
+  {
+   "test_idx": 6150,
+   "teacher_pred (p)": "World (0.98)",
+   "student_pred (p)": "Sports (0.76)",
+   "student p(true)": 0.23,
+   "tokens": 27,
+   "text": "England humble Sprinboks Charlie Hodgson scores 27 points as England overwhelm the Springboks at Twickenham."
+  }
+ ],
+ "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+ "torch": "2.15.0+cu132",
+ "transformers": "5.24.1"
+}
